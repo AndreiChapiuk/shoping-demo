@@ -1,21 +1,34 @@
-import React from 'react'
+import React, { useState } from "react";
+import { FaCartShopping } from "react-icons/fa6";
+import Order from "./Order";
 
-export default function Header() {
+export default function Header(props) {
+  let [cartOpen, setCartOpen] = useState(false);
+
   return (
     <header>
-        <div>
-            <span className='logo'>Peptides</span>
-            <ul className='navigation'>
-              <li>КОМАНДА</li>
-              <li>СВОЙСТВА</li>
-              <li>ОПТОВЫЕ ЦЕНЫ</li>
-              <li>О ПЕПТИДАХ</li>
+      <div>
+        <span className="logo">Peptides</span>
+        <ul className="navigation">
+          <li>КОМАНДА</li>
+          <li>СВОЙСТВА</li>
+          <li>ОПТОВЫЕ ЦЕНЫ</li>
+          <li>О ПЕПТИДАХ</li>
+        </ul>
+        <FaCartShopping
+          onClick={() => setCartOpen((cartOpen = !cartOpen))}
+          className={`shop-cart-button ${cartOpen && "active"}`}
+        />
 
-            </ul>
-        </div>
-        <div className='presentation'>
-
-        </div>
+        {cartOpen && (
+          <div className="shop-cart">
+            {props.orders.map((el) => (
+              <Order key={el.id} item={el} />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="presentation"></div>
     </header>
-  )
+  );
 }

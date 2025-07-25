@@ -1,70 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #fff;
-    color: #222;
-    font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+  background: #dfdede;
+  color: #222;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .wrapper {
-    width: 1280px;
-    margin: 50px auto;
+  width: 1280px;
+  margin: 50px auto;
+}
+
+header {
+  position: relative;
 }
 
 header .logo {
-    font-weight: 600;
-    font-size: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 header ul.navigation {
-    float: right;
-    list-style: none;
+  float: right;
+  list-style: none;
 }
 
 header ul.navigation li {
-    display: inline;
-    cursor: pointer;
-    margin-left: 25px;
+  display: inline;
+  cursor: pointer;
+  margin-left: 25px;
 }
 
 header ul.navigation li:hover {
-    opacity: 0.5;
-    transition: opacity 500ms ease;
-    color: red;
+  opacity: 0.5;
+  transition: opacity 500ms ease;
+  color: red;
 }
 
+header .shop-cart-button {
+  float: right;
+  cursor: pointer;
+  transition:
+    color,
+    transform 500ms ease;
+}
+
+header .shop-cart-button:hover,
+header .shop-cart-button.active {
+  color: darkred;
+  transform: scale(1.5);
+}
+
+header .shop-cart {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
+  min-height: 100px;
+  background: #fafafa;
+  box-shadow: 6px 7px 22px -8px rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+}
 
 header .presentation {
-    position: relative;
-    margin: 50px 0;
-    background: url('./img/bg.jpg') no-repeat;
-    width: 100%;
-    height: 530px;
-    background-size: cover;
-    background-position: center center;
-    background-blend-mode: multiply;
-    background-color: #b1b1b1;
-
+  position: relative;
+  margin: 50px 0;
+  background: url("./img/bg.jpg") no-repeat;
+  width: 100%;
+  height: 370px;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: #b1b1b1;
 }
 
 header .presentation::after {
-    content: 'Лучшие пептиды на рынке';
-    position: absolute;
-    top: 25%;
-    left: 50px;
-    font-size: 40px;
-    font-weight: 400;
+  content: "Лучшие пептиды на рынке";
+  position: absolute;
+  top: 25%;
+  left: 50px;
+  font-size: 40px;
+  font-weight: 400;
+}
 
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #dfdede;
+}
+
+main .item {
+  width: 30%;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+main .item img {
+  width: 50%;
+  border-radius: 10px 10px 0 0;
+  background: #fbfbfb;
+  margin-left: 25px;
+}
+
+main .item img:hover {
+  box-shadow: 0.7px 2px 3px black;
+  transform: scale(1.05);
+  transition: transform 0.3s;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+main h2,
+main p,
+main b {
+  margin: 10px 20px;
+  color: #333;
+}
+
+main b {
+  font-family: fantasy;
+  color: #222;
+  font-size: 23px;
+}
+
+main .add-to-cart {
+  position: absolute;
+  border-radius: 10px;
+  color: white;
+  transition: 0.2s linear;
+  background: #0b63f6;
+  right: 190px;
+  bottom: 20px;
+  width: 75px;
+  height: 25px;
+  text-align: center;
+  line-height: 23px;
+}
+
+main .add-to-cart:hover {
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px #3c82f8;
+  cursor: pointer;
 }
 
 footer {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
