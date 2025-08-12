@@ -2,13 +2,31 @@ import React, { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import Order from "./Order";
 
+const showOrders = (props) => {
+  return (
+    <div>
+      {props.orders.map((el) => (
+        <Order onDelete={props.onDelete} duplicate = {props.duplicate} onDuplicate={props.onDuplicate} key={el.id} item={el}   />
+      ))}
+    </div>
+  );
+};
+
+const showNothing = () => {
+  return (
+    <div className="empty">
+      <h2>Корзина пуста</h2>
+    </div>
+  );
+};
+
 export default function Header(props) {
   let [cartOpen, setCartOpen] = useState(false);
 
   return (
     <header>
       <div>
-        <span className="logo">Peptides</span>
+          <span className="logo" onClick={() => window.location.reload()} >Peptides</span>      
         <ul className="navigation">
           <li>КОМАНДА</li>
           <li>СВОЙСТВА</li>
@@ -22,9 +40,7 @@ export default function Header(props) {
 
         {cartOpen && (
           <div className="shop-cart">
-            {props.orders.map((el) => (
-              <Order key={el.id} item={el} />
-            ))}
+            {props.orders.length > 0 ? showOrders(props) : showNothing()}
           </div>
         )}
       </div>

@@ -9,6 +9,7 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      duplicate:[1],
       orders: [],
       items: [
         {
@@ -61,19 +62,45 @@ class App extends React.Component {
 
     }
 this.addToOrder= this.addToOrder.bind(this)
+this.deleteOrder= this.deleteOrder.bind(this)
+this.duplicateOrder= this.duplicateOrder.bind(this)
+this.duplicate = this.state.duplicate
   }
   render() { 
   return (
   <div className='wrapper'>
-    <Header orders= {this.state.orders} />
-    <Items items={this.state.items} onAdd = {this.addToOrder} />
+    <Header orders= {this.state.orders} onDelete= {this.deleteOrder} onDuplicate= {this.duplicateOrder } />
+    <Items items={this.state.items} onAdd = {this.addToOrder} duplicate= {this.state.duplicate} />
     <Footer />
   </div>
   )
 }
 
+deleteOrder(id){
+this.setState({orders:this.state.orders.filter(el=>el.id !== id )})
+}
+
+
+duplicateOrder(item){
+  this.state.orders.forEach(el =>{
+    if (el.id === item ) {
+   let element = document.getElementById(item)  
+   element.innerHTML =  Number(element.innerHTML)+1;
+
+    }
+  })
+}
+
  addToOrder(item) {
-  this.setState({orders:[...this.state.orders,item]})
+  let isInArray = false;
+  this.state.orders.forEach(el =>{
+    if (el.id === item.id ) {
+      isInArray = true
+    }
+  })
+if (!isInArray){
+   this.setState({orders:[...this.state.orders,item]})    
+    }
  }
 }
 

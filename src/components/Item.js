@@ -4,13 +4,16 @@ export class Item extends Component {
   render() {
     return (
         <div className='item'>
+            <h3>{this.props.item.id}</h3>
             <img src={'./img/'+ this.props.item.img} />
             <h2>{this.props.item.title}</h2>
             <p>{this.props.item.description}</p>
             <b>{this.props.item.price}$</b>
+            
             <div className='add-to-cart' onClick={()=> this.props.onAdd(this.props.item) } >add</div>
 
         </div>
+
     )
   }
 }

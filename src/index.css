@@ -64,10 +64,86 @@ header .shop-cart {
   top: 30px;
   right: 0;
   width: 450px;
-  min-height: 100px;
+  padding: 20px;
+  padding-bottom: 0;
   background: #fafafa;
   box-shadow: 6px 7px 22px -8px rgba(0, 0, 0, 0.75);
   z-index: 1000;
+}
+
+header .shop-cart .empty h2 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+header .shop-cart .item {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+header .shop-cart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shop-cart .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header .shop-cart .item b {
+  color: red;
+  font-weight: 600;
+}
+
+
+header .shop-cart .item .delete-icon {
+  cursor: pointer;
+  color: rgb(198, 0, 0);
+  float: right;
+  position: relative;
+  top: -25px;
+}
+
+header .shop-cart .item h3 {
+    left: 40px;
+    position: relative;
+    top: 14px;
+}
+
+header .shop-cart .item .delete-icon:hover {
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform 500ms;
+}
+header .shop-cart .item .pluse-icon {
+  cursor: pointer;
+  color: rgb(79 77 77);
+  float: left;
+  position: relative;
+  top: 35px;
+  border-radius: 50%;
+  background-color: #5af15a;
+  width: 25px;
+  height: 25px;
+  z-index: 100;
+}
+header .shop-cart .item .minus-icon {
+  cursor: pointer;
+  color: rgb(79 77 77);
+  float: left;
+  position: relative;
+  top: 35px;
+  border-radius: 50%;
+  background-color: #5af15a;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  z-index: 100;
 }
 
 header .presentation {
